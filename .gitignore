@@ -1,0 +1,29 @@
+# Adapted from https://www.toptal.com/developers/gitignore/api/openfoam
+
+# Timestep directories
+0*
+[0-9]*[0-9]
+
+
+
+# Decomposed domains
+processor*
+
+# log Files
+log.*
+*log
+
+# paraview
+*.foam
+*.OpenFOAM
+*.pvsm
+
+IGNORE_FILE
+
+# Important Files
+!Coarse/postProcessing/centrelineProbe/0/
+!system/*
+!constant/
+!0.orig/
+!.gitignore
+

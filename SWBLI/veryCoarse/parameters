@@ -1,0 +1,31 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  v1706                                 |
+|   \\  /    A nd           | Web:      www.OpenFOAM.org                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    object      parameters;
+}
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+// Initial turbulence parameters
+
+I  0.01;   // From FLOW CHARACTERIZATION AND MODELING OF HYPERSONIC WIND TUNNELS - RWG tunnel
+L  0.0015; // 0.4*3.8mm - wall bounded estimation
+
+Prt    0.7;
+Sct    0.7;
+
+nProcs  6;
+
+writeTime  1e-4;
+endTime   20e-4;
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //

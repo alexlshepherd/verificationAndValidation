@@ -1,0 +1,17 @@
+#!/bin/bash
+cd ${0%/*} || exit 1    # run from this directory
+
+# Source tutorial run functions
+. $WM_PROJECT_DIR/bin/tools/RunFunctions
+
+# Save gmsh file as .msh using Version 2 Ascii in gui
+# or gmsh PATH/file.geo -3 -format msh2 -o mesh.msh
+
+gmshToFoam coarseSWBLI.msh
+changeDictionary
+renumberMesh -constant -overwrite
+
+rm -r polyMesh.orig
+cp -r ./constant/polyMesh polyMesh.orig
+
+#------------------------------------------------------------------------------

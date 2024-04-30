@@ -1,0 +1,77 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     |
+    \\  /    A nd           | Web:      www.OpenFOAM.com
+     \\/     M anipulation  |
+-------------------------------------------------------------------------------
+Description
+    Writes graph data for specified fields along a line, specified by start
+    and end points.
+
+\*---------------------------------------------------------------------------*/
+
+
+#includeEtc     "caseDicts/postProcessing/graphs/sampleDict.cfg"
+type            sets;
+libs            ("libsampling.so");
+
+writeControl    writeTime;
+
+interpolationScheme cellPoint;
+
+setFormat   raw;
+
+setConfig
+{
+    type    uniform;
+    axis    y;
+    nPoints 1000;
+}
+
+sets
+(
+    section2
+    {
+        $setConfig;
+        start (0.266 0.000 0);
+        end   (0.266 0.007 0);
+    }
+    section4
+    {
+        $setConfig;
+        start (0.316 0.000 0);
+        end   (0.316 0.007 0);
+    }
+    section7
+    {
+        $setConfig;
+        start (0.376 0.000 0);
+        end   (0.376 0.007 0);
+    }
+    section8
+    {
+        $setConfig;
+        start (0.396 0.000 0);
+        end   (0.396 0.007 0);
+    }
+    section9
+    {
+        $setConfig;
+        start (0.426 0.000 0);
+        end   (0.426 0.007 0);
+    }
+    section10
+    {
+        $setConfig;
+        start (0.449 0.000 0);
+        end   (0.449 0.007 0);
+    }
+);
+
+fields 
+(
+    rho Ux Tt Mach
+);
+
+// ************************************************************************* //

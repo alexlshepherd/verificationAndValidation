@@ -1,0 +1,38 @@
+#!/bin/bash
+cd ${0%/*} || exit 1    # run from this directory
+
+# Source tutorial run functions
+. $WM_PROJECT_DIR/bin/tools/RunFunctions
+
+parallel=true
+
+if [ $1 == 'new' ]
+then
+  # Restore 0 from 0.orig and copy parent file instead of links
+  cp -rL 0.orig/ 0/
+  
+  # Resotre mesh - used with myMesh script
+  rm -r ./constant/polyMesh
+  cp -r polyMesh.orig/ ./constant/polyMesh
+  
+  mapFields ../medium -sourceTime 'latestTime'
+fi
+
+if [ "$parallel" = true ]
+then
+  # Run parallel with output to screen
+  decomposePar
+  foamJob -parallel -screen $(getApplication)
+  reconstructPar > /dev/null
+  
+  # Remove processor files
+  rm -r processor*
+else
+  foamJob -screen $(getApplication)
+fi
+
+postProcess -func normalProfiles -latestTime
+postProcess -func wallProfiles -latestTime
+hy2Foam -postProcess -func 'yPlus'
+
+#------------------------------------------------------------------------------
