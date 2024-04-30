@@ -1,0 +1,21 @@
+#!/bin/sh
+cd ${0%/*} || exit 1    # run from this directory
+
+# Source tutorial clean functions
+. $WM_PROJECT_DIR/bin/tools/CleanFunctions
+
+# Modified to confirm cleaning
+
+printf 'Clean case? (Y/n) '
+read input
+
+case $input in
+  [yY*] )
+    cleanCase
+    cleanSamples
+    find . -name "*~" -delete
+    rm -r 0
+  ;;
+  * )
+  ;;
+esac
