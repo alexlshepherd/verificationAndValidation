@@ -4,15 +4,15 @@ This case aims to accurately simulate drag around a cylinder in incompressible f
 
 A block structured mesh was used consisting of 9,200 cells in the 2D case with y+ ranging from 12 to 175 for $\mathrm{Re}_D=10^5$. The blockage ratio, diameter to channel width, was 5%.
 
-CFD results were evaluated against the coefficient of drag curve fit from White's Viscous Flows [[1]]:
+CFD results were evaluated against the coefficient of drag curve fit from White's Viscous Flows [1]:
 
 $$C_D = 1.18 + \frac{6.8}{\mathrm{Re}_D^{0.89}} + \frac{1.96}{\mathrm{Re}_D^{0.5}} - \frac{0.0004 \mathrm{Re}_D}{1 + 3.64 \cdot 10^{-7} \mathrm{Re}_D^2} \quad \mathrm{Re}_D < 2\cdot10^5$$
 
-and the Strouhal number fit from Roshko [[2]]:
+and the Strouhal number fit from Roshko [2]:
 
 $$\mathrm{Sr}_D = \frac{fD}{U}$$
 
-$$\mathrm{Sr}_D = \begin{cases}0.212 - \frac{4.5}{\mathrm{Re}_D} & 50<\mathrm{Re}_D < 200 \\ 0.212 - \frac{2.7}{\mathrm{Re}_D} & 200 < \mathrm{Re}_D < 2000 \end{cases}$$
+$$\mathrm{Sr}_D = \begin{cases}0.212 - \frac{4.5}{\mathrm{Re}_D}, & 50<\mathrm{Re}_D < 200; \\ 0.212 - \frac{2.7}{\mathrm{Re}_D}, & 200 < \mathrm{Re}_D < 2000 \end{cases}$$
 
 Though the Strouhal number curve fits are only applicable up to 2000, the curve has been extended in the graph below.
 
