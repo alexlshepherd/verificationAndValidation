@@ -1,0 +1,41 @@
+#!/bin/bash
+cd ${0%/*} || exit 1    # run from this directory
+
+# Source tutorial run functions
+. $WM_PROJECT_DIR/bin/tools/RunFunctions
+
+#------------------------------------------------------------------------------
+
+# D = 2
+# U = 1
+
+Re_list="10 100 1000 10000 100000 1000000"
+
+#Re_list="20 200 2000 20000 200000"
+#Re_list="40 400 4000 40000 400000"
+#Re_list="60 600 6000 60000 600000"
+#Re_list="80 800 8000 80000 800000"
+
+#------------------------------------------------------------------------------
+
+for Re in $Re_list
+do
+    echo "Running Re =" $Re
+    
+    nu=`python -c "print(f'{1*2/$Re:0.3e}')"`
+    echo $nu
+    
+    sed "s/VISCOCITY/$nu/g" constant/transportProperties.template > \
+        constant/transportProperties
+    
+    blockMesh
+    restore0Dir
+    runApplication decomposePar
+    foamJob -parallel -screen $(getApplication)
+    
+    cp postProcessing/forceCoeffs/0/coefficient.dat ../2Dcoefficient$Re.dat
+    
+    ./Allclean
+done
+
+
