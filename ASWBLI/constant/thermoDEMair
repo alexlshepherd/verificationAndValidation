@@ -1,0 +1,48 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  v1706                                 |
+|   \\  /    A nd           | Web:      www.OpenFOAM.org                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    location    "constant";
+    object      thermoDEM;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+Air
+{
+    specie
+    {
+        nMoles          1;
+        molWeight       28.9647;
+        particleType    2;
+        charge          0;
+        diameter        4.17e-10;
+        omega           0.74;
+        noVibTemp       1;
+        noElecLevels    1; 
+    }
+    thermodynamics
+    {
+        decoupledCvCoeffs    ( 1.5 1 0 0 0 0 0 );
+        vibrationalList      ( 1  3371 );
+        electronicList       (  
+                                1  0
+                             );               
+    }
+    transport
+    {
+        SutherlandEucken
+        {
+            As          1.458e-6;
+            Ts          110.4;
+        }
+    }
+}
+// ************************************************************************* //

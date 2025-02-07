@@ -1,0 +1,24 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  v1706                                 |
+|   \\  /    A nd           | Web:      www.OpenFOAM.org                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    object      initialConditions;
+}
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+T            80;  // T0 = 888.9K
+U          1277;  // Ma = 7.11
+p           550;  // P0 = 2515kPa
+
+nuTilda0  11e-4; // ṽ = 5 v_inf  per SA model
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
