@@ -8,6 +8,7 @@ This case seeks to recreate the experimental results of Kussoy and Horstman [[1]
 This simulation assumed axial symmetry and no flow in the angular direction, making it 2D axisymmetric. Two RANS turbulence models were used and compared in the figures below: k-ω SST (SST) and Spalart-Allmaras (SA). It's interesting to not that while the SA models produce much more accurate surface normal profiles upstream of the flare, it is SST which produces a more accurate wall pressure profile. For both models the pressure profiles fall off in accuracy halfway down the flare, however the same behaviour is exhibited by NASA's CFD codes [[2]](https://turbmodels.larc.nasa.gov/axiswblim7_val.html). Wall heat flux profiles are not very accurate on the other hand, but again demonstrate the same fall off behaviour that can be seen in the (admittedly more accurate) results of [[2]](https://turbmodels.larc.nasa.gov/axiswblim7_val.html).
 
 ![Surface Normal Profiles](figures/upstreamProfiles.png)
+
 ![Wall Pressure Profile](figures/wallPressure.png)
 ![Wall Heat Flux Profile](figures/wallHeatFlux.png)
 
