@@ -6,7 +6,6 @@ import os
 tTot = lambda Ma, T, gamma: T * (1 + (gamma - 1)/2 * Ma**2)
 
 r = 10.15
-pInf = 580
 
 models = ["SA", "SST"]
 
